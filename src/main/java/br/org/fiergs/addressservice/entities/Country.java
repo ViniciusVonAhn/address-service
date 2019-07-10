@@ -13,10 +13,12 @@ import javax.validation.constraints.NotEmpty;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "CAD_COUNTRY")
+@SequenceGenerator(name = "seqCad_country", sequenceName = "SEQCAD_COUNTRY", allocationSize = 1)
 public class Country {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqCad_country")
     private Long id;
 
     private Long code;
@@ -24,10 +26,10 @@ public class Country {
     @NotEmpty(message = "Nome é obrigatório")
     private String name;
 
-    @Column(name = "reduced_name")
+    @Column(name = "reducedname")
     private String reducedName;
 
-    @Column(name = "international_name")
+    @Column(name = "internationalname")
     private String internationalName;
 
     private String initials;

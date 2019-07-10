@@ -14,20 +14,22 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "CAD_STATE")
+@SequenceGenerator(name = "seqCad_state", sequenceName = "SEQCAD_STATE", allocationSize = 1)
 public class State {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqCad_state")
     private Long id;
 
     @NotEmpty(message = "Nome é obrigatório")
     @Size(max = 50, message = "Nome deve ter no maxímo 50 caracteres")
     private String name;
 
-    @Column(name = "geographic_region")
+    @Column(name = "geographicregion")
     private String geographicRegion;
 
-    @Column(name = "ibge_code")
+    @Column(name = "ibgecode")
     private String ibgeCode;
 
     private String initials;

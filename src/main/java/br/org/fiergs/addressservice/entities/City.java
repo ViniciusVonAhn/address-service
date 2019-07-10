@@ -14,10 +14,12 @@ import javax.validation.constraints.Size;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
+@Table(name = "CAD_CITY")
+@SequenceGenerator(name = "seqCad_city", sequenceName = "SEQCAD_CITY", allocationSize = 1)
 public class City {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqCad_city")
     private Long id;
 
     @ManyToOne
@@ -28,16 +30,16 @@ public class City {
     @Size(max = 50, message = "Nome deve ter no maxímo 50 caracteres")
     private String name;
 
-    @ManyToOne
+    /*@ManyToOne
     @JoinColumn(name = "id_cep")
-    private Cep cep;
+    private Cep cep;*/
 
-    @Column(name = "ibge_code")
+    @Column(name = "ibgecode")
     private String codeIbge;
 
-    @Column(name = "rec_code")
+    @Column(name = "reccode")
     private String codeRec;
 
-    @Column(name = "mec_code")
+    @Column(name = "meccode")
     private String codeMec;
 }

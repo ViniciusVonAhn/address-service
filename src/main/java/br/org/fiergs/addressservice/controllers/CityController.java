@@ -27,7 +27,7 @@ public class CityController {
     }
 
     @PostMapping
-    public City save(@Valid City city){
+    public City save(@RequestBody @Valid City city){
         return cityService.saveCity(city);
     }
 

@@ -27,7 +27,7 @@ public class StateController {
     }
 
     @PostMapping
-    public State save(@Valid State state){
+    public State save(@RequestBody @Valid State state){
         return stateService.saveState(state);
     }
 

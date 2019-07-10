@@ -26,10 +26,8 @@ public class Country {
     @NotEmpty(message = "Nome é obrigatório")
     private String name;
 
-    @Column(name = "reducedname")
     private String reducedName;
 
-    @Column(name = "internationalname")
     private String internationalName;
 
     private String initials;

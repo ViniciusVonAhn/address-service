@@ -34,12 +34,9 @@ public class City {
     @JoinColumn(name = "id_cep")
     private Cep cep;*/
 
-    @Column(name = "ibgecode")
     private String codeIbge;
 
-    @Column(name = "reccode")
     private String codeRec;
 
-    @Column(name = "meccode")
     private String codeMec;
 }

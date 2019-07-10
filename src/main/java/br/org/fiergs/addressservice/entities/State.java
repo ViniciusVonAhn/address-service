@@ -26,10 +26,8 @@ public class State {
     @Size(max = 50, message = "Nome deve ter no maxímo 50 caracteres")
     private String name;
 
-    @Column(name = "geographicregion")
     private String geographicRegion;
 
-    @Column(name = "ibgecode")
     private String ibgeCode;
 
     private String initials;

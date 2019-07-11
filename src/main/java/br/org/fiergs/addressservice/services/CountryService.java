@@ -20,7 +20,7 @@ public class CountryService {
 
     public Optional<Country> findByNameCountry(String name){
         Optional<Country> countryExists = countryRepository.findByNameContainingIgnoreCase(name);
-        if(countryExists.isPresent() && countryExists != null) {
+        if(countryExists.isPresent()) {
             return countryRepository.findByNameContainingIgnoreCase(name);
         }else{
             throw new RuntimeException("Nenhum país encontrado");
@@ -31,9 +31,9 @@ public class CountryService {
         Optional<Country> countryExists = countryRepository.findByNameContainingIgnoreCase(country.getName());
         if(countryExists.isPresent()){
             throw new RuntimeException("País já está cadastrado");
+        } else {
+            return this.countryRepository.save(country);
         }
-
-        return this.countryRepository.save(country);
     }
 
     public Country editCountry(Country country) {

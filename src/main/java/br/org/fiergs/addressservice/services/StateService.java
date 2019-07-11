@@ -19,8 +19,8 @@ public class StateService {
     }
 
     public Optional<State> findByNameState(String name){
-        Optional<State> countryExists = stateRepository.findByNameContainingIgnoreCase(name);
-        if(countryExists.isPresent()) {
+        Optional<State> stateExists = stateRepository.findByNameContainingIgnoreCase(name);
+        if(stateExists.isPresent()) {
             return stateRepository.findByNameContainingIgnoreCase(name);
         }else{
             throw new RuntimeException("Nenhum estado encontrado");
@@ -28,8 +28,8 @@ public class StateService {
     }
 
     public State saveState(State state) {
-        Optional<State> countryExists = stateRepository.findByNameContainingIgnoreCase(state.getName());
-        if(countryExists.isPresent()){
+        Optional<State> stateExists = stateRepository.findByNameContainingIgnoreCase(state.getName());
+        if(stateExists.isPresent()){
             throw new RuntimeException("Estado já está cadastrado");
         }
 
@@ -37,9 +37,9 @@ public class StateService {
     }
 
     public State editState(State state) {
-        Optional<State> optionalCountry = stateRepository.findByNameContainingIgnoreCaseAndIdIsNot(state.getName(), state.getId());
+        Optional<State> optionalState = stateRepository.findByNameContainingIgnoreCaseAndIdIsNot(state.getName(), state.getId());
 
-        if(optionalCountry.isEmpty()){
+        if(optionalState.isEmpty()){
             stateRepository.save(state);
         }else {
             throw new RuntimeException("Estado já está cadastrado");

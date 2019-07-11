@@ -72,6 +72,8 @@ public class City {
     @Enumerated(EnumType.STRING)
     private Location location;
 
+    private boolean active = true;
+
     @ManyToOne
     @JoinColumn(name = "id_state")
     private State state;

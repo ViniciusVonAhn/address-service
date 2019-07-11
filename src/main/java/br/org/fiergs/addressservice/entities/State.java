@@ -40,6 +40,8 @@ public class State {
     @Size(max = 2, message = "Sigla ser menor que 3 caracteres")
     private String initials;
 
+    private boolean active = true;
+
     @ManyToOne
     @JoinColumn(name = "id_country")
     private Country country;

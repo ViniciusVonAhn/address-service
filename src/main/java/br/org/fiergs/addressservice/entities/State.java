@@ -23,24 +23,22 @@ public class State {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqCad_state")
     private Long id;
 
-    @Size(max = 20, message = "Chave deve ser menor que 21 caracteres")
+    @Size(max = 30, message = "Chave deve ter até 30 caracteres")
     private String key;
 
     @NotEmpty(message = "Nome é obrigatório")
-    @Size(max = 30, message = "Nome deve ter no maxímo 50 caracteres")
+    @Size(max = 150, message = "Nome deve ter até 150 caracteres")
     private String name;
 
-    @NotEmpty(message = "Região geográfica é obrigatória")
+    @Size(max = 15, message = "Região geográfica deve ter até 15 caracteres")
     private String geographicRegion;
 
-    @Max(value = 99, message = "Código de mercado deve ser menor que 100 caracteres")
-    private Integer ibgeCode;
+    @Size(max = 20, message = "Código IBGE deve ter até 20 caracteres")
+    private String ibgeCode;
 
     @NotEmpty(message = "Sigla é obrigatória")
-    @Size(max = 2, message = "Sigla ser menor que 3 caracteres")
+    @Size(max = 2, message = "Sigla deve ter até 2 caracteres")
     private String initials;
-
-    private boolean active = true;
 
     @ManyToOne
     @JoinColumn(name = "id_country")

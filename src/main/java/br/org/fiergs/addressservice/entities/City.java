@@ -24,18 +24,18 @@ public class City {
     @GeneratedValue(strategy = GenerationType.AUTO, generator = "seqCad_city")
     private Long id;
 
-    @Size(max = 20, message = "Chave deve ser menor que 21 caracteres")
+    @Size(max = 20, message = "Chave deve ter no máximo 20 caracteres")
     private String key;
 
     @NotNull(message = "Código é obrigatório")
-    @Max(value = 99999, message = "Código deve ser menor que 100000 caracteres")
+    @Max(value = 99999, message = "Código deve ter no máximo 99999 caracteres")
     private Integer code;
 
     @NotEmpty(message = "Nome é obrigatório")
     @Size(max = 30, message = "Nome deve ter no maxímo 50 caracteres")
     private String name;
 
-    @Max(value = 9999, message = "Código CAT deve ser menor que 10000 caracteres")
+    @Max(value = 9999, message = "Código CAT deve ter no máximo 10000 caracteres")
     private Integer catCode;
 
     @Max(value = 999, message = "Código grupo pessoa deve ser menor que 1000 caracteres")
